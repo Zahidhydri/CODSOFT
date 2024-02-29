@@ -304,7 +304,7 @@ def calculator():
     equal.grid(row = 9, column = 3,columnspan = 4,padx = 1, pady = 1,ipadx = 25)
 
     label_2 = Label(zahid,font = ('bausaus',20,'bold'),relief="ridge",bd=6,bg = "#f9f",text=" \
-                                - 1222A - Zahid .S. Hydri.  ",justify = RIGHT)
+                                             - Zahid .S. Hydri.  ",justify = RIGHT)
     label_2.grid(row = 10,column = 1,columnspan = 6)
 
     exit_c = Button(zahid,font = ('arial',14,'bold'),width = 8,bd = 0,fg = "#fff",bg = "#f1f",text = "Exit",cursor = "hand2",command = lambda:zahid.destroy())
