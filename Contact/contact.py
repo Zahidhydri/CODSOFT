@@ -18,14 +18,10 @@ def save_contacts(contacts):
 def add_contact():
     name = input("Enter contact name: ")
     phone = input("Enter contact phone number: ")
-    email = input("Enter contact email: ")
-    address = input("Enter contact address: ")
 
     new_contact = {
         "name": name,
         "phone": phone,
-        "email": email,
-        "address": address
     }
 
     contacts.append(new_contact)
@@ -64,7 +60,7 @@ def delete_contact():
 
     if 0 <= index < len(contacts):
         del contacts[index]
-        save_contacts(contacts)
+        save_contacts(contacts)  
         print("Contact deleted successfully!")
     else:
         print("Invalid index.")

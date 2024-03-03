@@ -1,2 +1,3 @@
-t.config(yscrollcommand=s.set)
-# s.config(command=t.yview)
+
+    # with open("contacts.dat", "ab") as file:
+    #     pickle.dump(contacts, file)
