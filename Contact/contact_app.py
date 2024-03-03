@@ -1,81 +1,10 @@
 from tkinter import *
 # from tkinter.scrolledtext import *
 from tkinter import messagebox
-import json
 import os
 import pickle  
 
-# Function to load contacts from a JSON file
-# def load_contacts():
-#     try:
-#         with open("contacts.json", "r") as file:
-#             contacts = json.load(file)
-#     except FileNotFoundError:
-#         contacts = []
-#     return contacts
-
-# # Function to save contacts to a JSON file
-# def save_contacts(contacts):
-#     with open("contacts.json", "w") as file:
-#         json.dump(contacts, file, indent=2)
-
-# # Function to add a new contact
-# def add_contact():
-#     name = input("Enter contact name: ")
-#     phone = input("Enter contact phone number: ")
-#     email = input("Enter contact email: ")
-#     address = input("Enter contact address: ")
-
-#     new_contact = {
-#         "name": name,
-#         "phone": phone,
-#         "email": email,
-#         "address": address
-#     }
-
-#     contacts.append(new_contact)
-#     save_contacts(contacts)
-#     print("Contact added successfully!")
-
-# # Function to view all contacts
-# def view_contacts():
-#     for index, contact in enumerate(contacts, start=1):
-#         print(f"{index}. {contact['name']} - {contact['phone']}")
-
-# # Function to search contacts by name or phone number
-# def search_contact(query):
-#     results = [contact for contact in contacts if query.lower() in contact['name'].lower() or query in contact['phone']]
-#     return results
-
-# # Function to update contact details
-# def update_contact():
-#     view_contacts()
-#     index = int(input("Enter the index of the contact to update: ")) - 1
-
-#     if 0 <= index < len(contacts):
-#         field = input("Enter the field to update (name, phone, email, address): ")
-#         new_value = input(f"Enter new {field}: ")
-
-#         contacts[index][field] = new_value
-#         save_contacts(contacts)
-#         print("Contact updated successfully!")
-#     else:
-#         print("Invalid index.")
-
-# # Function to delete a contact
-# def delete_contact():
-#     view_contacts()
-#     index = int(input("Enter the index of the contact to delete: ")) - 1
-
-#     if 0 <= index < len(contacts):
-#         del contacts[index]
-#         save_contacts(contacts)
-#         print("Contact deleted successfully!")
-#     else:
-#         print("Invalid index.")
-
-# contacts = load_contacts()
-
+#==================================================
 # Main
 zahid=Tk()
 zahid.title("Contact Manager")
@@ -89,51 +18,7 @@ def exit_win():
     end = messagebox.askyesno("Exit","Are you sure you want to exit?")
     if end:
         zahid.destroy()
-#=========================
-# Function to load contacts from a JSON file
-# def load_contacts():
-#     try:
-#         with open("contacts.json", "r") as file:
-#             contacts = json.load(file)
-#     except FileNotFoundError:
-#         contacts = []
-#     return contacts
 
-# def file_check():
-#     # global contacts
-#     file_path="contacts.json"
-#     if os.path.exists(file_path):
-#         with open("contacts.json", "r") as file:
-#             contacts = json.load(file)
-#     else:
-#         with open("contacts.json", "w") as file:
-#             json.dump([], file, indent=2)
-#             contacts = []
-
-         
-#     return contacts
-         
-
-
-#=========================================================
-# file_check()
-#===================================================================
-
-
-# list_frame=Frame(zahid)
-# list_frame.pack()
-
-# t=Listbox(list_frame)
-# for i in range(100):
-#     Listbox.insert(END,i)
-
-# t.pack(fill=Y)
-# s=Scrollbar(list_frame)
-# s.pack(side=RIGHT,fill=BOTH)
-
-
-# t.config(yscrollcommand=Scrollbar.set)
-# s.config(command=t.yview)
 
 #============================================
 #Function
@@ -150,13 +35,7 @@ def clear_delete():  # clear save entry column
 def clear_search():  # clear save entry column
         s_entry.delete(0,END)
 
-#============================================
-#Function
-# Function to save contacts to a JSON file
-# def save_contacts(contacts):
-#     with open("contacts.json", "w") as file:
-#         json.dump(contacts, file, indent=2)
-     
+#============================================  
 # # Function to add a new contact
 def add_contact():
     # global contacts
@@ -261,7 +140,6 @@ def update_contact():
             prompt_label.after(3000,change_text)
         change_text_up()
             
-#==========================
 #====================================================
 def delete_contact():
     check=False
@@ -276,7 +154,7 @@ def delete_contact():
                 temp_data.append(con_data)
             except EOFError:
                     break
-    with open("Project_stud_data.dat","wb") as file:
+    with open("contacts.dat","wb") as file:
         for i in temp_data:
             if i[0]==del_no or i[1]==del_no:
                 check=True
@@ -307,68 +185,6 @@ def delete_contact():
                 prompt_label.after(3000,change_text)
         change_text_up()
     
-
-
-
-
-    # with open("contacts.dat", "ab") as file:
-    #     pickle.dump(contacts, file)
-
-    # for i in contacts:
-    #     for key in i:
-    #         if str(i[key])==str(name):
-    #             prompt_label.config(text="Already Exit !",fg="white")
-    #             break
-    #         else:    
-    #             if phone.isnumeric():
-    #                 new_contact = {
-    #                     "name": name,
-    #                     "phone": phone,
-    #                 }
-
-    #                 contacts.append(new_contact)
-    #                 save_contacts(contacts)
-    #                 print("Contact added successfully!")
-    #             else:
-    #                 prompt_label.config(text="Invalid inputs !",fg="#f99")
-    #                 print("invalid")
-    #             break
-
-# Function to update contact details
-# def update_contact():
-#     with open("contacts.json", "r") as file:
-#         contacts = json.load(file)
-#     for i in contacts:
-#          print(contacts)
-    # view_contacts()
-    # index = int(input("Enter the index of the contact to update: ")) - 1
-
-    # if 0 <= index < len(contacts):
-    #     field = input("Enter the field to update (name, phone, email, address): ")
-    #     new_value = input(f"Enter new {field}: ")
-
-    #     contacts[index][field] = new_value
-    #     save_contacts(contacts)
-    #     print("Contact updated successfully!")
-    # else:
-    #     print("Invalid index.")
-#========================================================
-# def load_contact():
-#     with open("mycontact.txt","r") as file:
-#         contacts=file.read()
-#         mylist.insert(END,contacts)
-
-# def add_contact():
-#     name = str(add_name_entry.get().strip())
-#     name=name+" "*20
-#     name=name[:20]+" : "
-#     phone = str(add_no_entry.get().strip())
-#     phone=phone+" "*20
-#     phone=name[:10]+"\n"
-#     contact=name+phone
-#     with open("mycontacts","a") as file:
-#         file.write(contact)
-          
                          
 #========================================================
 def load_data():
@@ -397,25 +213,21 @@ def load_data():
     #         mylist.insert(END,i)
 #====================================================
 def search_data():
-    search=s_entry.get().strip()
+    mylist.delete(0,END)
+    search=s_entry.get().strip().lower()
     with open("contacts.dat","rb") as f:
         try:
             while True:
                 data=pickle.load(f)
-                    
-                if data[4]>=a:                  
-                    t.insert(INSERT,data[0]+"  "+data[1]+"  "+data[2]+"  "+data[3]+"  "+data[4]+"  "+"\n")
-                    t.tag_add("center",1.0,"end")
-                elif data[0].lower()==a.lower():
-                    t.insert(INSERT,data[0]+"  "+data[1]+"  "+data[2]+"  "+data[3]+"  "+data[4]+"  "+"\n")
-                    t.tag_add("center",1.0,"end")
-                elif data[3].lower()==a.lower():
-                    t.insert(INSERT,data[0]+"  "+data[1]+"  "+data[2]+"  "+data[3]+"  "+data[4]+"  "+"\n")
-                    t.tag_add("center",1.0,"end")
-                elif data[2].lower()==a.lower():
-                    t.insert(INSERT,data[0]+"  "+data[1]+"  "+data[2]+"  "+data[3]+"  "+data[4]+"  "+"\n")
-                    t.tag_add("center",1.0,"end")
-                
+
+                list_len=Listbox.size(mylist) # count line 
+                list_len=str(list_len+1) + ".    "
+                list_len=list_len[0:4]
+
+                for i in data:
+                    if search in str(i).lower():
+                        # if str(j).lower()==search or str(j).lower()==search:
+                        mylist.insert(END," "+list_len+(str(data[0])+" "*20)[0:15]+ " : "+(str(data[1])+" "*10)[0:10] )       
                     
         except EOFError:
             f.close()
@@ -504,7 +316,7 @@ search_label = Label(zahid,font = ('arial',30,'bold'),fg="#eef",bg="#30f", text=
 search_label.grid(row=1, column=5,columnspan=3,pady=5,sticky="ew")
 
 s_entry = Entry(zahid,font = ('arial',30,'bold'),bg="#97f")
-s_btn = Button(zahid,font = ('arial',20,'bold'),bg="#19f", text=" Search ",cursor = "hand2",command = lambda: load_data())
+s_btn = Button(zahid,font = ('arial',20,'bold'),bg="#19f", text=" Search ",cursor = "hand2",command = lambda: search_data())
 s_entry.grid(row=2, column=5,pady=3)
 s_btn.grid(row=2, column=6,pady=3)
 
@@ -519,24 +331,6 @@ mylist.grid(row=3,column=5,rowspan=9,columnspan=2,sticky="EWNS",)
 
 load_data()
 
-# s=Scrollbar(t).pack(side=RIGHT,fill=BOTH)
-# scroll_bar.config(command=t.yview)
-
-# list_frame=Frame(zahid)
-# list_frame.grid(row=0,column=5)
-# t.config(yscrollcommand=s.set)
-# s.config(command=t.yview)
-# t=Listbox(list_frame)
-# for i in range(100):
-#     mylist.insert(END,i)
-
-# t.pack(fill=Y)
-# s=Scrollbar(list_frame)
-# s.pack(side=RIGHT,fill=BOTH)
-
-
-# t.config(yscrollcommand=Scrollbar.set)
-# s.config(command=t.yview)
 clear_s = Button(zahid,font = ('bausaus',20,'bold'),text = "Clear",fg = "black",width = 7,height = 1,bg = "#f22",
                     cursor = "hand2",command = lambda: clear_search())
 clear_s.grid(row = 12, column = 6)
@@ -544,7 +338,7 @@ all_data= Button(zahid,font = ('bausaus',20,'bold'),text = "Reload",fg = "black"
                     cursor = "hand2",command = lambda: load_data())
 all_data.grid(row = 12, column = 5,pady=3)
 
-
+#=========================================
 
 zahid.mainloop()
 
