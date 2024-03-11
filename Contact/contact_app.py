@@ -228,7 +228,7 @@ def search_data():
                     if search in str(i).lower():
                         # if str(j).lower()==search or str(j).lower()==search:
                         mylist.insert(END," "+list_len+(str(data[0])+" "*20)[0:15]+ " : "+(str(data[1])+" "*10)[0:10] )       
-                    
+                     
         except EOFError:
             f.close()
 

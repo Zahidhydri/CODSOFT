@@ -1,6 +1,7 @@
 from tkinter import *
 import math
 
+# main Function 
 #==================================================================================================
 def calculator():
     # Basic Structure===========================                                                   
@@ -312,7 +313,8 @@ def calculator():
 
     zahid.mainloop()
 
-
+#======================================================================================
+# Calling Main Function
 calculator()
 
 
